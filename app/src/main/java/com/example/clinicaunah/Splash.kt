@@ -11,6 +11,8 @@ import com.example.clinicaunah.UI.MainActivity
 import org.jetbrains.anko.startActivity
 
 class Splash : AppCompatActivity() {
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
@@ -35,6 +37,7 @@ class Splash : AppCompatActivity() {
                 try {
                     Thread.sleep(3000)
                     val intent = Intent(baseContext,MainActivity::class.java)
+                    finish()
                     startActivity(intent)
                 }catch (e:Exception){
                     e.printStackTrace()
@@ -44,5 +47,8 @@ class Splash : AppCompatActivity() {
         }
         splash.start()
 
+
+
     }
+
 }
