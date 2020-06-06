@@ -14,6 +14,7 @@ import com.example.clinicaunah.API.APIService
 import com.example.clinicaunah.API.API_CLINICA_UNAH_URL
 import com.example.clinicaunah.Modelos.Paciente
 import com.example.clinicaunah.R
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.gson.Gson
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
@@ -32,10 +33,37 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        setupNavigation()
+    }
+
+    private fun setupNavigation() {
+        val navView: BottomNavigationView = findViewById(R.id.nav_view)
+        navView.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.menu -> {
+                    Toast.makeText(this, "Este es de alberto", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                R.id.citas -> {
+                    Toast.makeText(this, "Nadie aun", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                R.id.mensajeria -> {
+                    Toast.makeText(this, "Este es de Brasly y Melvin", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                R.id.perfil -> {
+                    Toast.makeText(this, "Este es de alberto", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                else -> true
+            }
+        }
     }
 
 
 
+//prueba
     val retrofit: Retrofit = Retrofit.Builder()
             .baseUrl(API_CLINICA_UNAH_URL)
             .addConverterFactory(GsonConverterFactory.create())
