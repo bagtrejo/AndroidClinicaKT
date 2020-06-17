@@ -1,5 +1,6 @@
 package com.example.clinicaunah.UI
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
@@ -49,7 +50,11 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.mensajeria -> {
-                    Toast.makeText(this, "Este es de Brasly y Melvin", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, MensajeriaActivity::class.java )
+                    startActivity(intent)
+
+//                    Toast.makeText(this, "Este es de Brasly y Melvin", Toast.LENGTH_SHORT).show()
+
                     true
                 }
                 R.id.perfil -> {
