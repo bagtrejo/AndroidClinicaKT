@@ -32,21 +32,21 @@ class Perfil : AppCompatActivity() {
 
     fun mostrarDatos(view: View){
 
-        service.getPacientes().enqueue(object : Callback<ArrayList<Paciente>> {
+        service.obtenerPaciente(id = 1).enqueue(object : Callback<Paciente> {
 
             override fun onResponse(
-                call: Call<ArrayList<Paciente>>,
-                response: retrofit2.Response<ArrayList<Paciente>>
+                call: Call<Paciente>,
+                response: retrofit2.Response<Paciente>
             ) {
 
                 val pacientes = response.body()
 
-                Log.d("datos de la api", pacientes?.get(0).toString())
+                Log.d("datos de la api", pacientes?.toString())
 
 
             }
 
-            override fun onFailure(call: Call<ArrayList<Paciente>>, t: Throwable) {
+            override fun onFailure(call: Call<Paciente>, t: Throwable) {
                 t.printStackTrace()
             }
 
