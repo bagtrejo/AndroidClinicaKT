@@ -18,6 +18,9 @@ interface APIService {
     @POST("getCurrentUser")
     fun obtenerUsuario(@Body token: Respuesta): Call<Any>
 
+    @GET("pacientes/{id}")
+    fun obtenerPaciente(@Path("id") id: Int):Call<Paciente>
+
 //    @GET
 //    fun getCharacterByName(@Url url:String): Call<Paciente>
 
