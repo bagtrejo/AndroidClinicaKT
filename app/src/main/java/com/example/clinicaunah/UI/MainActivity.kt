@@ -58,53 +58,17 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.perfil -> {
-                    Toast.makeText(this, "Este es de alberto", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, Perfil::class.java )
+                    startActivity(intent)
+
+                    //Toast.makeText(this, "Este es de alberto", Toast.LENGTH_SHORT).show()
+
                     true
                 }
                 else -> true
             }
         }
     }
-
-
-
-//prueba
-    val retrofit: Retrofit = Retrofit.Builder()
-            .baseUrl(API_CLINICA_UNAH_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-
-    val service = retrofit.create(APIService::class.java)
-
-
-
-
-    fun mostrarDatos(view: View){
-
-        service.getPacientes().enqueue(object : Callback<ArrayList<Paciente>> {
-
-            override fun onResponse(
-                call: Call<ArrayList<Paciente>>,
-                response: retrofit2.Response<ArrayList<Paciente>>
-            ) {
-
-                val pacientes = response.body()
-
-                Log.d("datos de la api", pacientes?.get(0).toString())
-
-
-            }
-
-            override fun onFailure(call: Call<ArrayList<Paciente>>, t: Throwable) {
-                t.printStackTrace()
-            }
-
-
-        })
-
-
-    }
-
 
 
 }
