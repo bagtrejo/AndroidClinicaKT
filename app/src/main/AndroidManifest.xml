@@ -14,9 +14,9 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
+        <activity android:name=".UI.Perfil"></activity>
         <activity android:name=".Splash" />
         <activity android:name=".UI.MensajeriaActivity" />
-
         <activity android:name=".UI.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,11 +24,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".UI.Login">
-
-
-
-        </activity>
+        <activity android:name=".UI.Login"></activity>
     </application>
 
 </manifest>
