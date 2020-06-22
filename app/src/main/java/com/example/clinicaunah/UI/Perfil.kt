@@ -8,6 +8,8 @@ import com.example.clinicaunah.API.APIService
 import com.example.clinicaunah.API.API_CLINICA_UNAH_URL
 import com.example.clinicaunah.Modelos.Paciente
 import com.example.clinicaunah.R
+import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.activity_perfil.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Retrofit
@@ -43,6 +45,17 @@ class Perfil : AppCompatActivity() {
 
                 Log.d("datos de la api", pacientes?.toString())
 
+                nombre.text = pacientes?.nombre_completo
+
+                numeroCuenta.text = "Numero de cuenta: ${pacientes?.numero_cuenta.toString()}"
+
+                numeroIdentidad.text = "Numero de identidad: ${pacientes?.numero_identidad.toString()}"
+
+                edad.text = "Numero de identidad: ${pacientes?.edad.toString()}"
+
+                sexo.text = "Sexo: ${pacientes?.sexo.toString()}"
+
+                carrera.text = "Carrera: ${pacientes?.carrera.toString()}"
 
             }
 
