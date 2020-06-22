@@ -51,53 +51,70 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/nombre"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="La Taflo"
-                            android:textStyle="bold"
-                            android:textSize="35sp"
+                            android:layout_gravity="center_horizontal"
                             android:layout_marginTop="60dp"
-                            android:layout_gravity="center_horizontal"/>
+                            android:textSize="30sp"
+                            android:textStyle="bold"
+                            tools:text="Paciente" />
 
                         <TextView
+                            android:id="@+id/numeroCuenta"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="50dp"
                             android:text="Numero de cuenta:"
                             android:textSize="17sp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            tools:text="Numero de cuenta:" />
 
                         <TextView
+                            android:id="@+id/numeroIdentidad"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="20dp"
-                            android:text="Numero de Identidad:"
+                            android:text="Numero de identidad"
                             android:textSize="17sp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            tools:text="Numero de Identidad:" />
 
                         <TextView
+                            android:id="@+id/edad"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:text="Edad:"
                             android:layout_marginTop="20dp"
-                            android:text="Numero de telefono:"
                             android:textSize="17sp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            tools:text="Edad:" />
 
                         <TextView
+                            android:id="@+id/sexo"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="20dp"
                             android:text="Sexo:"
                             android:textSize="17sp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            tools:text="Sexo:" />
 
                         <TextView
+                            android:id="@+id/carrera"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="20dp"
                             android:text="Carrera:"
                             android:textSize="17sp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            tools:text="Carrera:" />
+
+                        <Button
+                            android:onClick="mostrarDatos"
+                            android:text="precionar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
 
                     </LinearLayout>
 
