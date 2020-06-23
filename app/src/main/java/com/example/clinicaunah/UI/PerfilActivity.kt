@@ -65,7 +65,7 @@ class PerfilActivity : AppCompatActivity() {
 
                 carrera.text = "Carrera: ${paciente?.carrera.toString()}"
 
-                Glide.with(this@PerfilActivity).load(paciente?.imagen).into(imagenPaciente)
+                Glide.with(this@PerfilActivity).load(paciente?.imagen).error(R.drawable.descarga).into(imagenPaciente)
 
             }
 
