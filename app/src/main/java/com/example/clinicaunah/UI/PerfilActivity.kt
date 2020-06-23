@@ -3,6 +3,7 @@ package com.example.clinicaunah.UI
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.bumptech.glide.Glide
 import com.example.clinicaunah.API.APIService
 import com.example.clinicaunah.API.API_CLINICA_UNAH_URL
 import com.example.clinicaunah.Modelos.Paciente
@@ -58,11 +59,13 @@ class PerfilActivity : AppCompatActivity() {
 
                 numeroIdentidad.text = "Numero de identidad: ${paciente?.numero_identidad.toString()}"
 
-                edad.text = "Numero de identidad: ${paciente?.edad.toString()}"
+                edad.text = "Edad: ${paciente?.edad.toString()}"
 
                 sexo.text = "Sexo: ${paciente?.sexo.toString()}"
 
                 carrera.text = "Carrera: ${paciente?.carrera.toString()}"
+
+                Glide.with(this@PerfilActivity).load(paciente?.imagen).into(imagenPaciente)
 
             }
 
