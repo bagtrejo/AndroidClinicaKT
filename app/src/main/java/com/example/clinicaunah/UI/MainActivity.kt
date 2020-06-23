@@ -1,33 +1,13 @@
 package com.example.clinicaunah.UI
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.speech.tts.TextToSpeech
-import android.util.Log
-import android.view.View
 import android.widget.Toast
-import com.android.volley.Request
-import com.android.volley.Response
-import com.android.volley.toolbox.StringRequest
-import com.android.volley.toolbox.Volley
-import com.example.clinicaunah.API.APIService
-import com.example.clinicaunah.API.API_CLINICA_UNAH_URL
-import com.example.clinicaunah.Modelos.Paciente
+import androidx.appcompat.app.AppCompatActivity
+import com.example.clinicaunah.Utilidades.getValuePreferenceSeLogueo
 import com.example.clinicaunah.R
+import com.example.clinicaunah.Utilidades.getValuePreferenceIdUsuario
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.gson.Gson
-import org.jetbrains.anko.doAsync
-import org.jetbrains.anko.uiThread
-import org.json.JSONObject
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.converter.moshi.MoshiConverterFactory
-import java.util.*
-import kotlin.collections.ArrayList
-import kotlin.math.log
 
 class MainActivity : AppCompatActivity() {
 
@@ -35,6 +15,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setupNavigation()
+
+
+        //Obtiene valor de preferencia (la primera ocasión es por default false).
+        val seLogueo: Boolean = getValuePreferenceSeLogueo(applicationContext)
+
+        if(seLogueo == false){
+
+            var i: Intent = Intent(this, LoginActivity::class.java)
+            startActivity(i)
+        }
     }
 
     private fun setupNavigation() {
@@ -50,6 +40,8 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.mensajeria -> {
+
+                    // se llama a la activity de mensajeria
                     val intent = Intent(this, MensajeriaActivity::class.java )
                     startActivity(intent)
 
@@ -58,10 +50,18 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.perfil -> {
-                    val intent = Intent(this, Perfil::class.java )
+
+                    // recupero el valor guardado en la preferencia
+                    var id = getValuePreferenceIdUsuario(applicationContext)
+
+                    Toast.makeText(this, id.toString(),Toast.LENGTH_LONG).show()
+
+                    // se llama a la activity de perfil y le mando el id
+                    val intent = Intent(this, PerfilActivity::class.java ).apply {
+                        putExtra("id_usuario", id)
+                    }
                     startActivity(intent)
 
-                    //Toast.makeText(this, "Este es de alberto", Toast.LENGTH_SHORT).show()
 
                     true
                 }
