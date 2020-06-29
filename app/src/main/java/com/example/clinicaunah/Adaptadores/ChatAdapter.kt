@@ -27,12 +27,34 @@ class ChatAdapter(val context: Context): RecyclerView.Adapter<ChatHolder>() {
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChatHolder {
 
-        val v = LayoutInflater.from(context).inflate(R.layout.message, parent, false)
-        return ChatHolder(v)
+        if (viewType == 1){
+           val  v = LayoutInflater.from(context).inflate(R.layout.message_receptor, parent, false)
+            return ChatHolder(v)
+        }else{
+           val  v = LayoutInflater.from(context).inflate(R.layout.message_receptor, parent, false)
+            return ChatHolder(v)
+        }
+
+
     }
 
     override fun getItemCount(): Int {
         return listMensaje.size
+    }
+
+    //este siguiente metodo es para el estilo de los chats
+    override fun getItemViewType(position: Int): Int {
+        if (listMensaje[position].messageUser != null){
+            if(listMensaje[position].messageUser == "Brasly"){
+                return 1
+            }else{
+                return -1
+            }
+        }else{
+            return -1
+        }
+
+        //return super.getItemViewType(position)
     }
 
     override fun onBindViewHolder(holder: ChatHolder, position: Int) {
