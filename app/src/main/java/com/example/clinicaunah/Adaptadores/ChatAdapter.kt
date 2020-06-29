@@ -31,7 +31,7 @@ class ChatAdapter(val context: Context): RecyclerView.Adapter<ChatHolder>() {
            val  v = LayoutInflater.from(context).inflate(R.layout.message_receptor, parent, false)
             return ChatHolder(v)
         }else{
-           val  v = LayoutInflater.from(context).inflate(R.layout.message_receptor, parent, false)
+           val  v = LayoutInflater.from(context).inflate(R.layout.message_emisor, parent, false)
             return ChatHolder(v)
         }
 
